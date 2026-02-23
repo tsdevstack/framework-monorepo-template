@@ -1,0 +1,43 @@
+# Dependencies (installed fresh in Docker with correct platform bindings)
+node_modules
+**/node_modules
+
+# Build outputs
+**/dist
+**/.next
+**/build
+**/*.tsbuildinfo
+
+# Development files
+.git
+.gitignore
+**/.env
+**/.env.local
+**/.env.*.local
+
+# IDE
+.idea
+.vscode
+**/*.swp
+**/*.swo
+
+# Test files
+**/*.test.ts
+**/*.spec.ts
+**/coverage
+
+# Documentation
+docs
+*.md
+!README.md
+
+# Local development
+.tsdevstack/.credentials.*.json
+docker-compose.yml
+docker-compose.*.yml
+
+# Misc
+.DS_Store
+**/.DS_Store
+*.log
+npm-debug.log*

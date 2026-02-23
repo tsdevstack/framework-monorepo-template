@@ -1,0 +1,131 @@
+# ─────────────
+# Node.js & Common Tools
+# ─────────────
+node_modules/
+**/dist/
+**/build/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ─────────────
+# Environment & Secrets
+# ─────────────
+**/.env
+**/.env.*.local
+**/.env.local
+
+# ─────────────
+# Secrets files
+# ─────────────
+# Generated secrets (NEVER commit!)
+.secrets.local.json
+.secrets.tsdevstack.json
+!.secrets.user.example.json
+
+# ─────────────
+# OS Files
+# ─────────────
+.DS_Store
+
+# ─────────────
+# Editor & IDE
+# ─────────────
+.idea/
+*.sublime-workspace
+.project
+.classpath
+.settings/
+*.launch
+.c9/
+
+# ─────────────
+# Tests & Coverage
+# ─────────────
+**/coverage/
+.nyc_output/
+*.seed
+
+# ─────────────
+# Runtime & Temp
+# ─────────────
+.temp/
+.tmp/
+pids/
+*.pid
+*.pid.lock
+report.[0-9]*.json
+
+# ─────────────
+# Next.js
+# ─────────────
+**/.next/
+**/out/
+*.tsbuildinfo
+next-env.d.ts
+
+# ─────────────
+# Yarn / PnP / Turborepo
+# ─────────────
+.pnp*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ─────────────
+# Vercel / Deployment
+# ─────────────
+.vercel/
+
+# ─────────────
+# Prisma
+# ─────────────
+**/prisma/client/
+**/prisma/generated/
+**/src/generated/
+
+# ─────────────
+# Swagger Docs (in service folders)
+# ─────────────
+**/apps/*/docs/openapi.json
+**/apps/*/docs/openapi.yaml
+
+# ─────────────
+# Docker volumes
+# ─────────────
+data/
+
+# ─────────────
+# Kong Gateway, pgAdmin, Monitoring
+# ─────────────
+# Generated config files (local dev only)
+/kong.yml
+pgadmin-servers.json
+pgadmin-pgpass
+
+# ─────────────
+# Cloud provider credentials
+# ─────────────
+.tsdevstack/.credentials.*.json
+
+# ─────────────
+# Terraform
+# ─────────────
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+
+# ─────────────
+# Documentation build output
+# ─────────────
+**/doc_build/
+
+# ─────────────
+# Temp
+# ─────────────
+temp/

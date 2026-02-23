@@ -1,0 +1,14 @@
+{
+  "$schema": "./config.schema.json",
+  "project": {
+    "name": "{{PROJECT_NAME}}",
+    "version": "0.1.0"
+  },
+  "framework": {
+    "template": null
+  },
+  "cloud": {
+    "provider": null
+  },
+  "services": []
+}

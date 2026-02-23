@@ -1,0 +1,166 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "tsdevstack Configuration",
+  "description": "Configuration file for tsdevstack framework projects",
+  "type": "object",
+  "required": ["project", "framework", "cloud", "services"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Project name (kebab-case recommended)"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Project version (semver)"
+        },
+        "description": {
+          "type": "string",
+          "description": "Project description"
+        }
+      }
+    },
+    "framework": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "tsdevstack framework version"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["monorepo", "standalone"],
+          "description": "Project structure type"
+        },
+        "packageScope": {
+          "type": "string",
+          "pattern": "^@[a-z0-9-]+$",
+          "description": "NPM package scope (e.g., @myproject)"
+        },
+        "template": {
+          "type": ["string", "null"],
+          "enum": ["fullstack-auth", "auth", null],
+          "description": "Framework template: 'fullstack-auth' (backend auth + Next.js auth pages), 'auth' (backend auth only), or null (no framework auth)"
+        }
+      }
+    },
+    "cloud": {
+      "type": "object",
+      "required": ["provider"],
+      "properties": {
+        "provider": {
+          "type": ["string", "null"],
+          "enum": ["aws", "gcp", "azure", null],
+          "description": "Cloud provider for deployment"
+        }
+      }
+    },
+    "services": {
+      "type": "array",
+      "description": "List of services in the project",
+      "items": {
+        "type": "object",
+        "required": ["name", "type"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Service name"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["nestjs", "nextjs", "express", "spa", "worker", "custom"],
+            "description": "Service type"
+          },
+          "port": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535,
+            "description": "Service port"
+          },
+          "globalPrefix": {
+            "type": "string",
+            "description": "API route prefix (for NestJS services)"
+          },
+          "hasDatabase": {
+            "type": "boolean",
+            "description": "Whether service has its own database"
+          },
+          "databaseType": {
+            "type": "string",
+            "enum": ["postgresql", "mysql", "mongodb", "redis"],
+            "description": "Database type if hasDatabase is true"
+          },
+          "baseService": {
+            "type": "string",
+            "description": "For worker services: the base service this worker is derived from (shares same Docker image)"
+          }
+        }
+      }
+    },
+    "infrastructure": {
+      "type": "object",
+      "description": "Infrastructure configuration",
+      "properties": {
+        "gateway": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["kong", "nginx", "none"],
+              "description": "API gateway type"
+            },
+            "mode": {
+              "type": "string",
+              "enum": ["db-less", "database"],
+              "description": "Gateway mode (for Kong)"
+            },
+            "autoDiscovery": {
+              "type": "boolean",
+              "description": "Enable automatic service discovery"
+            },
+            "configFile": {
+              "type": "string",
+              "description": "Gateway configuration file"
+            }
+          }
+        },
+        "databases": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["postgresql", "mysql", "mongodb"],
+                "description": "Database type"
+              },
+              "port": {
+                "type": "integer",
+                "description": "Database port"
+              }
+            }
+          }
+        },
+        "cache": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["redis", "memcached"],
+              "description": "Cache type"
+            },
+            "port": {
+              "type": "integer",
+              "description": "Cache port"
+            }
+          }
+        }
+      }
+    }
+  }
+}
