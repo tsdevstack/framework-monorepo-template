@@ -10,11 +10,15 @@
     "build:libs": "lerna run build --scope=@{{PROJECT_NAME}}/* --scope=@shared/*",
     "build:apps": "lerna run build --ignore=@{{PROJECT_NAME}}/* --ignore=@shared/*",
     "build": "npm run build:libs && npm run build:apps",
-    "start": "npm run build:libs && lerna run start --parallel",
-    "dev": "npm run build:libs && lerna run dev --parallel",
+    "start": "npm run build:libs && lerna run start --parallel --ignore=@{{PROJECT_NAME}}/* --ignore=@shared/*",
+    "dev": "npm run clean:tsbuildinfo && npm run build:libs && lerna run dev --parallel",
+    "dev:workers": "lerna run start-worker:dev --parallel",
     "tsc": "lerna run tsc --parallel",
     "lint": "lerna run lint --parallel",
     "test": "lerna run test --parallel",
+    "docs:generate": "lerna run docs:generate",
+    "clean:tsbuildinfo": "find . -name '*.tsbuildinfo' -not -path '*/node_modules/*' -delete",
+    "clean:cache": "npm run clean:tsbuildinfo && rm -rf node_modules/.cache",
     "prepare": "husky"
   },
   "lint-staged": {
