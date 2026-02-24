@@ -7,8 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build:libs": "lerna run build --scope=@{{PROJECT_NAME}}/*",
-    "build:apps": "lerna run build --ignore=@{{PROJECT_NAME}}/*",
+    "build:libs": "lerna run build --scope=@{{PROJECT_NAME}}/* --scope=@shared/*",
+    "build:apps": "lerna run build --ignore=@{{PROJECT_NAME}}/* --ignore=@shared/*",
     "build": "npm run build:libs && npm run build:apps",
     "start": "npm run build:libs && lerna run start --parallel",
     "dev": "npm run build:libs && lerna run dev --parallel",
