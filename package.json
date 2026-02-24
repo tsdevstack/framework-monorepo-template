@@ -21,7 +21,7 @@
     "*.{ts,tsx}": "node .tsdevstack/lint-staged-check.mjs"
   },
   "devDependencies": {
-    "tsdevstack": "{{CLI_VERSION}}",
+    "@tsdevstack/cli": "{{CLI_VERSION}}",
     "husky": "^9.1.7",
     "lerna": "^8.2.3",
     "lint-staged": "^16.2.7"
