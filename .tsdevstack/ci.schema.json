@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "tsdevstack CI Configuration",
+  "description": "CI/CD configuration for tsdevstack framework projects",
+  "type": "object",
+  "required": ["provider", "environments"],
+  "properties": {
+    "provider": {
+      "type": "string",
+      "enum": ["github"],
+      "description": "CI provider (only GitHub supported currently)"
+    },
+    "environments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Target deployment environments"
+    }
+  }
+}
