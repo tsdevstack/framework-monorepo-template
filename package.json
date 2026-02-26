@@ -7,10 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build:libs": "lerna run build --scope=@{{PROJECT_NAME}}/* --scope=@shared/*",
-    "build:apps": "lerna run build --ignore=@{{PROJECT_NAME}}/* --ignore=@shared/*",
+    "build:libs": "lerna run build --scope='@*/*'",
+    "build:apps": "lerna run build --ignore='@*/*'",
     "build": "npm run build:libs && npm run build:apps",
-    "start": "npm run build:libs && lerna run start --parallel --ignore=@{{PROJECT_NAME}}/* --ignore=@shared/*",
+    "start": "npm run build:libs && lerna run start --parallel --ignore='@*/*'",
     "dev": "npm run clean:tsbuildinfo && npm run build:libs && lerna run dev --parallel",
     "dev:workers": "lerna run start-worker:dev --parallel",
     "tsc": "lerna run tsc --parallel",
