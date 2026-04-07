@@ -21,8 +21,10 @@ lerna-debug.log*
 # Secrets files
 # ─────────────
 # Generated secrets (NEVER commit!)
+.secrets*
 .secrets.local.json
-.secrets.tsdevstack.json
+.secrets.*.json
+!.secrets.example.json
 !.secrets.user.example.json
 
 # ─────────────
@@ -75,11 +77,7 @@ next-env.d.ts
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
-# ─────────────
-# Vercel / Deployment
-# ─────────────
-.vercel/
+**/.npmrc
 
 # ─────────────
 # Prisma
@@ -102,10 +100,13 @@ data/
 # ─────────────
 # Kong Gateway, pgAdmin, Monitoring
 # ─────────────
-# Generated config files (local dev only)
+# Generated config files (gitignored - local dev only)
+# Root kong.yml has resolved secrets, infra/kong/*/kong.yml has placeholders (safe to commit)
 /kong.yml
 pgadmin-servers.json
 pgadmin-pgpass
+prometheus/
+grafana/
 
 # ─────────────
 # Cloud provider credentials
@@ -128,4 +129,4 @@ pgadmin-pgpass
 # ─────────────
 # Temp
 # ─────────────
-temp/
+temp
