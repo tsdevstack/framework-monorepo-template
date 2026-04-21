@@ -27,7 +27,7 @@
   "devDependencies": {
     "@tsdevstack/cli": "{{CLI_VERSION}}",
     "husky": "^9.1.7",
-    "lerna": "^9.0.4",
+    "lerna": "^9.0.7",
     "lint-staged": "^16.2.7"
   },
   "repository": {
@@ -39,7 +39,7 @@
     "url": "https://github.com/tsdevstack/framework-monorepo-template/issues"
   },
   "engines": {
-    "node": ">= 20.0.0"
+    "node": ">= 22.0.0"
   },
   "overrides": {
     "tar": "^7.5.9"
