@@ -4,6 +4,22 @@
 
 A TypeScript microservices monorepo built with [tsdevstack](https://tsdevstack.dev).
 
+## How To Work Here
+
+For any framework operation, reach for tools in this order — don't guess or hand-edit:
+
+1. **MCP server (`tsdevstack`)** — its tools cover every framework operation (services, secrets, deploy, config). Use them instead of raw CLI or manual edits.
+2. **Agent skills** (if installed) — they trigger on common tasks and carry the framework-specific how-to. Follow them.
+3. **Docs** — fetch `https://tsdevstack.dev/llms.txt` for the full list of pages, then fetch the AI markdown of any page: `https://tsdevstack.dev/docs/<area>/<page>.md`.
+
+These always apply, whichever tool you use:
+
+- **Never edit generated files** (`docker-compose.yml`, `infrastructure/**`, `kong.tsdevstack.yml`, `.secrets.tsdevstack.json`). Change the matching `*.user.*` file or the source config, then run `sync`.
+- **Never scaffold or delete a service by hand** — use `add-service` / `remove-service`.
+- **Backends read secrets via `SecretsService`, never `process.env`.**
+- **Don't reinstall what `@tsdevstack/nest-common` provides** (auth, Redis, logging, metrics, rate-limiting, BullMQ, notifications, Prisma pooling).
+- **A new service needs a full `infra:deploy`** (Terraform creates its runtime), not `infra:deploy-services`.
+
 ## MCP Server
 
 This project has an MCP server that provides tools for managing services, infrastructure, secrets, and deployments. It gives you access to all framework operations without needing to know individual CLI commands.
@@ -12,6 +28,10 @@ To use it, ensure your AI tool is configured to read `.mcp.json` from the projec
 ```
 npx tsdevstack mcp:serve
 ```
+
+## Agent Skills
+
+If set up during `init` (or via `npx skills add tsdevstack/skills`), a set of vendor-neutral skills triggers automatically for common work: the auth model, adding an endpoint, running locally, database schema changes, service/worker lifecycle, the Next.js BFF, the `nest-common` building blocks, secrets, messaging, storage, the deploy command model, and deploy troubleshooting. Each points at the docs for depth. Not installed? The MCP server and docs cover the same ground.
 
 ## Project Structure
 
