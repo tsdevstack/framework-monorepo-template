@@ -46,6 +46,19 @@
           "type": ["string", "null"],
           "enum": ["fullstack-auth", "auth", null],
           "description": "Framework template: 'fullstack-auth' (backend auth + Next.js auth pages), 'auth' (backend auth only), or null (no framework auth)"
+        },
+        "apiKeys": {
+          "type": "object",
+          "description": "Partner API key settings",
+          "additionalProperties": false,
+          "properties": {
+            "ipLimitPerMinute": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 600,
+              "description": "Per-IP ceiling on partner routes: requests per minute one client IP may send, whatever the key (bounds key guessing; not a usage limit). Default 600."
+            }
+          }
         }
       }
     },
