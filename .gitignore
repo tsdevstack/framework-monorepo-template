@@ -125,6 +125,8 @@ grafana/
 *.tfstate
 *.tfstate.*
 *.tfplan
+# Lambda archives Terraform builds (archive_file) on every plan
+infrastructure/terraform/*/lambda/*.zip
 
 # ─────────────
 # Documentation build output
