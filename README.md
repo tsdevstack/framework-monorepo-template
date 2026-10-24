@@ -15,10 +15,10 @@ npm run dev
 ## Project Structure
 
 ```
-apps/           — Microservices (NestJS backends, Next.js frontends, SPAs)
-packages/       — Shared libraries
-infrastructure/ — Kong gateway, Terraform (generated)
-.tsdevstack/    — Framework configuration
+apps/             Microservices (NestJS backends, Next.js frontends, SPAs)
+packages/         Shared libraries
+infrastructure/   Kong gateway, Terraform (generated)
+.tsdevstack/      Framework configuration
 ```
 
 ## Commands

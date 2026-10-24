@@ -47,6 +47,9 @@ lerna-debug.log*
 # Tests & Coverage
 # ─────────────
 **/coverage/
+**/.rstack/
+.nx/
+**/.vitest/
 .nyc_output/
 *.seed
 
